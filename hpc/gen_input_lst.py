@@ -14,7 +14,7 @@ def getArgs():
                         required=False,
                         help='the result stored in ')
     parser.add_argument('-numLst',
-                        default=64,
+                        default=160,
                         required=False,
                         help='the num of list')
     parser.add_argument('-res',
