@@ -16,6 +16,6 @@ def combine(folder, out):
 
 
 if __name__ == '__main__':
-    folder = '../output/'
+    folder = './output/'
     out = 'map_output_hpc.txt'
     combine(folder, out)
