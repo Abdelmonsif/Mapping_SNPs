@@ -133,4 +133,4 @@ if __name__ == "__main__":
 
     mapping(input_csv, pdb_path, seq_path, total_seq_path, output)
     end = time.time()
-    print'time elapsed :' + str(end - start)
+    print('time elapsed :' + str(end - start))
