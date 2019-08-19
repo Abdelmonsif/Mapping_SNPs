@@ -32,10 +32,10 @@ def getArgs():
                         default='~/Downloads/Mapping_SNPs-master/fasta/',
                         required=False,
                         help='the folder of fasta')
-    parser.add_argument('-test',
-                        default='~/Downloads/Mapping_SNPs-master/test/',
+    parser.add_argument('-Ensembl',
+                        default='~/Downloads/Mapping_SNPs-master/Ensembl/',
                         required=False,
-                        help='the folder of test')
+                        help='the folder of Ensembl sequences')
     return parser.parse_args()
 
 
@@ -143,18 +143,16 @@ if __name__ == "__main__":
     input_csv = args.inputCSV
     output = args.out
     pdb_path = args.pdb
-    seq_path = args.test
+    seq_path = args.Ensembl
     total_seq_path = args.fasta
 
     # input_csv = './SNPs_with_crystal_structure'
-    #
-    # # input_csv = './compare_output/left_struct'
     # output = './pdb_aligning_results'
     # pdb_path = './pdb_only/'
-    # seq_path = './test/'
+    # seq_path = './Ensembl/'
     # total_seq_path = './fasta/'
+    
     start = time.time()
-
     mapping(input_csv, pdb_path, seq_path, total_seq_path, output)
     end = time.time()
     print'time elapsed :'+str(end - start)
