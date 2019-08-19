@@ -1,13 +1,11 @@
 from __future__ import division
 import pandas as pd
 import numpy as np
-
 from Bio.SubsMat.MatrixInfo import blosum62
 import re
 from Bio import pairwise2
 import time
 from multiprocessing import Pool
-
 
 def read_file(filename):
     f = open(filename, 'r')
@@ -128,7 +126,7 @@ if __name__ == "__main__":
     input_csv = './SNPs_with_crystal_structure'
     output = './output/pdb_aligning_results'
     pdb_path = './pdb_only/'
-    seq_path = './test/'
+    seq_path = './Ensembl/'
     total_seq_path = './fasta/'
 
     start = time.time()
