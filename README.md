@@ -6,7 +6,9 @@ Before processing and downloading the sequences from Ensembl:
 Remember to convert 'X' , '*' and 'U' to 'C'
 
 sed -i 's/X/C/g' *
+
 sed -i 's/*/C/g' *
+
 sed -i 's/U/C/g' *
 
 untar fasta file to have the fasta sequences of all the crystal structures. this file is for 09/2018.
