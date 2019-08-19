@@ -9,7 +9,8 @@ sed -i 's/X/C/g' *
 sed -i 's/*/C/g' *
 sed -i 's/U/C/g' *
 
-
+untar fasta file to have the fasta sequences of all the crystal structures. this file is for 09/2018.
+tar -xzvf fasta.tar.gz 
 
 # Library packages needed:
 
