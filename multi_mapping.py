@@ -96,31 +96,21 @@ def worker(temp_zip, output):
                   + '{:>5}'.format(str(position_x)) \
                   + '{:>3}'.format(wt) \
                   + '{:>5}'.format(str(position_y)) \
-                  + '{:>3}'.format(pure_y_seq[position_y - 1])
+                  + '{:>3}'.format(pure_y_seq[position_y - 1]
+		  + '\n')
             w_str = w_str + t_w_str
 
-    f_out.write(w_str)
+        f_out.write(w_str)
 
     f_out.close()
 
 
 def mapping(input_csv, pdb_path, seq_path, total_seq_path, output):
     df = pd.read_csv(input_csv, delim_whitespace=True)
-
-    temp_zip = zip(df.wild_type, df.PROTEIN_ID, df.Position, df.Mutant, df.SNP_ID,
-                   df.disorder, df.confidence, df.wt_codon, df.mutant_codon)
+    temp_zip = zip(df.wild_type, df.PROTEIN_ID, df.Position, df.Mutant, df.SNP_ID,df.disorder, df.confidence, df.wt_codon, df.mutant_codon)
     temp_zip = sorted(temp_zip, key=lambda x: (x[1], len(x[4])))
     size = len(temp_zip)
-
-    P_NUM = 30
-    p = Pool(P_NUM)
-
-    for i in range(P_NUM):
-        p.apply_async(worker,
-                      args=(temp_zip[int(size / P_NUM) * i: int(size / P_NUM) * (i + 1)], output + '_' + str(i)))
-    p.close()
-    p.join()
-
+    worker(temp_zip,output)
 
 if __name__ == "__main__":
     input_csv = './SNPs_with_crystal_structure'
@@ -130,7 +120,7 @@ if __name__ == "__main__":
     total_seq_path = './fasta/'
 
     start = time.time()
-
     mapping(input_csv, pdb_path, seq_path, total_seq_path, output)
     end = time.time()
+
     print('time elapsed :' + str(end - start))
