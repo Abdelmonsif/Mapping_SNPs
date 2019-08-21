@@ -17,5 +17,5 @@ def combine(folder, out):
 
 if __name__ == '__main__':
     folder = './output/'
-    out = 'map_output_hpc.txt'
+    out = 'pdb_aligning_results'
     combine(folder, out)
