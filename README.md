@@ -13,7 +13,9 @@ sed -i 's/U/C/g' *
 
 untar fasta file to have the fasta sequences of all the crystal structures. this file is for 09/2018.
 
-tar -xzvf fasta.tar.gz 
+mkdir fasta
+
+tar -xzvf fasta.tar.gz -C fasta/ 
 
 # Library packages needed:
 
